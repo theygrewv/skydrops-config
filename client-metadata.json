@@ -1,0 +1,12 @@
+{
+  "client_id": "https://skydrops.app/client-metadata.json",
+  "client_name": "Skydrops",
+  "client_uri": "https://skydrops.app",
+  "logo_uri": "https://skydrops.app/logo.png",
+  "redirect_uris": [
+    "https://skydrops.app/callback"
+  ],
+  "scope": "atproto transition:generic",
+  "grant_types": ["authorization_code", "refresh_token"],
+  "response_types": ["code"]
+}
