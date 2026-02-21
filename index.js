@@ -4,7 +4,6 @@ export default {
     const host = url.hostname;
 
     // 1. IDENTITY RESOLUTION
-    // Keeps your handle working on the AT Protocol
     if (url.pathname.startsWith('/.well-known/atproto-did')) {
       return new Response("did:plc:your_did_here", { 
         headers: { "content-type": "text/plain" },
@@ -36,7 +35,6 @@ export default {
                 overflow: hidden;
             }
 
-            /* The Glass Sheet */
             .glass-sheet {
                 position: relative;
                 width: 90%;
@@ -52,7 +50,6 @@ export default {
                 z-index: 1;
             }
 
-            /* The Aura Glow around the sheet */
             .glass-sheet::after {
                 content: "";
                 position: absolute;
@@ -67,10 +64,9 @@ export default {
                 width: 96px;
                 height: 96px;
                 margin: 0 auto 24px;
-                /* This pulls your custom pixel art icon from your domain */
                 background: url('https://skydrops.app/logo.png'); 
                 background-size: cover;
-                image-rendering: pixelated; /* Keeps your 8-bit art sharp */
+                image-rendering: pixelated;
                 border-radius: 18px;
                 box-shadow: 0 0 20px rgba(65, 105, 225, 0.4);
             }
@@ -87,22 +83,39 @@ export default {
                 font-weight: 500;
             }
 
+            .button-group {
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+            }
+
             .btn {
                 display: block;
                 padding: 14px;
-                background: rgba(255, 255, 255, 0.08);
-                color: white;
                 text-decoration: none;
                 border-radius: 14px;
-                border: 1px solid rgba(255, 255, 255, 0.2);
-                font-weight: 500;
+                font-weight: 600;
                 transition: all 0.3s ease;
+                font-size: 0.9rem;
+            }
+
+            /* Main Login Button */
+            .btn-primary {
+                background: white;
+                color: black;
+                box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+            }
+
+            /* Secondary Profile Button */
+            .btn-secondary {
+                background: rgba(255, 255, 255, 0.08);
+                color: white;
+                border: 1px solid rgba(255, 255, 255, 0.2);
             }
 
             .btn:hover { 
-                background: rgba(255, 255, 255, 0.15);
                 transform: translateY(-3px);
-                border-color: rgba(255, 255, 255, 0.4);
+                filter: brightness(1.1);
             }
         </style>
     </head>
@@ -112,7 +125,11 @@ export default {
             <div class="app-icon"></div>
             <h1>${host}</h1>
             <p>Where the Skies touch Grass.<br>Your corner of the cosmos.</p>
-            <a href="https://bsky.app/profile/${host}" class="btn">View on Bluesky</a>
+            
+            <div class="button-group">
+                <a href="#" class="btn btn-primary">Sign in with Skydrops</a>
+                <a href="https://bsky.app/profile/${host}" class="btn btn-secondary">View on Bluesky</a>
+            </div>
         </div>
     </body>
     </html>
