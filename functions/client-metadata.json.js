@@ -15,8 +15,11 @@ export async function onRequest(context) {
 
   return new Response(JSON.stringify(metadata), {
     headers: {
-      "content-type": "application/json;charset=UTF-8",
-      "access-control-allow-origin": "*"
+      "Content-Type": "application/json;charset=UTF-8",
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET, OPTIONS",
+      "Access-Control-Allow-Headers": "Content-Type, Authorization",
+      "Cache-Control": "no-store"
     },
   });
 }
