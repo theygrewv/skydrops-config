@@ -3,10 +3,11 @@
   "client_name": "Skydrops",
   "client_uri": "https://skydrops.app",
   "logo_uri": "https://skydrops.app/logo.png",
-  "redirect_uris": [
-    "https://skydrops.app/callback"
-  ],
-  "scope": "atproto transition:generic",
+  "redirect_uris": ["app.skydrops:/oauth/callback"],
   "grant_types": ["authorization_code", "refresh_token"],
-  "response_types": ["code"]
+  "response_types": ["code"],
+  "scope": "atproto transition:generic transition:chat.bsky",
+  "token_endpoint_auth_method": "none",
+  "application_type": "native",
+  "dpop_bound_access_tokens": true
 }
